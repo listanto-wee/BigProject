@@ -4,22 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - FaceMu</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: white;
+            height: auto;
+            box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            content: url(Gambar/LaporAja!.png);
+            height: auto;
+            width: 170px;
+            padding: 10px 10px 10px 30px; 
+        }
+
+        header div{
+            display: inline-flex;
+        }
+
+        nav, ol, li,a {
+            list-style-type: none;
+            float: right;
+            position: relative;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+        a :hover{
+            color: aqua;
+        }
+
+        li {
+            margin-right: 40px;
+            float: left;
+        }
+
+        header button {
+            border: 0;
+            height: 30px;
+            width: 80px;
+            border-radius: 15px;
+            color: blue;
+            margin: 10px 10px 10px 10px; 
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Project Besar</h1>
-    <table>
-        <tr>
-            <td>Nama</td>
-            <td>Kelas</td>
-            <td>NIM</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr></tr>
-    </table>
-    <p><a href="Page2.html">Next</a></p>
+     <header>
+        <img>
+        <nav>
+            <ol>
+                <li><a href="#">Home</a></li>
+                <li><a href="http://localhost/Tugas/PostTest.html">Product</a></li>
+                <li><a href="http://localhost/Tugas/MenyisipkanGambar.html">Partner</a></li>
+                <li><a href="#">Help</a></li>
+            </ol>
+        </nav>
+        <button>Login</button>
+    </header>
 </body>
 </html>
