@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - FaceMu</title>
+    <title>Home - LaporAja!</title>
     <style>
         *{
             font-family: Arial, Helvetica, sans-serif;
@@ -139,12 +139,36 @@
             position: relative;
             margin: 30px 0px 0px 0px;
             color:  #244166;
+            text-align: center;
+            vertical-align: top;
             z-index: 1;
-            padding: 50px 300px 50px 300px;
             background-color: white;
             box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
             border: 1px solid whitesmoke;
             border-radius: 15px;
+         }
+
+         .alur table {
+            margin: 40px auto;
+            border-collapse: collapse;
+         }
+
+         .alur td,tr,th{
+            border: 1px solid black;
+            width: 150px;
+            padding: 10px;
+         }
+
+         .jalur{
+            font-size: 30px ;
+         }
+
+         .jalur label{
+            background-color: #244166;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 50%;
+            display: inline-block;
          }
 
     </style>
@@ -171,7 +195,32 @@
                     <button>Lapor Sekarang!</button>
                 </div>
                 <div class="alur">
-                    <h1>Alur Laporan</h1>
+                    <h3>Alur Laporan</h3>
+                    <div>
+                        <table>
+                            <tr class="jalur">
+                                <th><label>1</label></th>
+                                <td></td>
+                                <th><label>2</label></th>
+                                <td></td>
+                                <th><label>3</label></th>
+                            </tr>
+                            <tr>
+                                <th>ISI LAPORAN</th>
+                                <td></td>
+                                <th>KIRIM OTOMATIS</th>
+                                <td></td>
+                                <th>PANTAU STATUS</th>
+                            </tr>
+                            <tr>
+                                <td>Isi formulir & tambahkan foto.</td>
+                                <td></td>
+                                <td>Sistem mengirim laporan ke instansi tujuan.</td>
+                                <td></td>
+                                <td>Gunakan kode tracking untuk memantau.</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
