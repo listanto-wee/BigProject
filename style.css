@@ -1,0 +1,188 @@
+ *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        html,
+        body {
+            background-color: #eeeeee;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth ;
+        }
+
+        header {
+            background: white;
+            height: auto;
+            box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            content: url(Gambar/LaporAja!.png);
+            height: auto;
+            width: 170px;
+            padding: 10px 10px 10px 30px; 
+        }
+
+        nav, ol, li,a {
+            list-style-type: none;
+            float: right;
+            position: relative;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            z-index: 500;
+        }
+
+        a{
+            color: #244166;
+            padding: 5px;
+            font-weight: bold;
+            
+        }
+
+        a:hover{
+            color: white;
+            background-color: #244166;
+            border-radius: 5px;
+            
+            
+        }
+
+        li {
+            margin-right: 40px;
+            float: left;
+        }
+
+        header button {
+            border: 0;
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            color: #244166;
+            background-color: #33a3d8;
+            margin: 10px 80px 10px 80px;
+            font-weight: bold;
+        }
+
+        header button:hover{
+            cursor: pointer;
+        }
+
+        .title{
+            position: absolute;
+            align-items: center;
+            left: 50%;
+            transform: translate(-50%);
+            width: 70%;
+            margin-top: 10%;
+            color:  #244166;
+            z-index: 3;
+        }
+        .title h1{
+            font-size: 3vw;
+        }
+        .title h2{
+            font-size: 1.5vw;
+            line-height: 1.3;
+        }
+
+        #titletext{
+            padding: 0% 0% 0% 10%;
+        }
+
+        main button{
+            position: relative;
+            z-index: 2;
+            width: 230px;
+            height: 60px;
+            border: 0px;
+            background-color: #244166;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: larger;
+        }
+        main button:hover{
+            cursor: pointer;
+            border: 3px solid  #244166;
+            background-color: white;
+            color:  #244166;
+        }
+        main section{
+            border: 0px solid black;
+        }
+        #section1{
+            position: absolute;
+            width: 100%;
+        }
+        .bg{
+            position: absolute;
+            padding-top: -100px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .bg img{
+            width: 100%;
+            opacity: 0.7;
+            height: auto;
+            display: block;
+         }
+
+         #alur{
+            position: relative;
+            margin: 15% 0px 0px 0px;
+            color:  #244166;
+            text-align: center;
+            vertical-align: top;
+            z-index: 1;
+            background-color: white;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid whitesmoke;
+            border-radius: 15px;
+         }
+         #alur label{
+            font-size: xx-large;
+            font-weight: bold;
+         }
+
+         #alur table {
+            margin: 40px auto;
+            border-collapse: collapse;
+         }
+
+         #alur td,tr,th{
+            border: 0px solid black;
+            width: 170px;
+            padding: 10px;
+         }
+
+         .jalur{
+            font-size: 30px ;
+         }
+
+         .jalur label{
+            background-color: #244166;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 50%;
+            display: inline-block;
+         }
+         .arrow{
+            content: url(Gambar/Arrow.png);
+            height: 150px;
+         }
+
+         #statistik{
+             position: relative;
+            margin: 5% 0px 0px 0px;
+            color:  #244166;
+            text-align: center;
+            vertical-align: top;
+            z-index: 1;
+            background-color: white;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid whitesmoke;
+            border-radius: 15px;
+         }
