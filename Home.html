@@ -10,10 +10,11 @@
         }
         html,
         body {
-            background-color: whitesmoke;
+            background-color: #eeeeee;
             width: 100%;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth ;
         }
 
         header {
@@ -82,7 +83,7 @@
             left: 50%;
             transform: translate(-50%);
             width: 70%;
-            margin-top: 5%;
+            margin-top: 10%;
             color:  #244166;
             z-index: 3;
         }
@@ -131,13 +132,14 @@
         }
         .bg img{
             width: 100%;
+            opacity: 0.7;
             height: auto;
             display: block;
          }
 
-         .alur{
+         #alur{
             position: relative;
-            margin: 30px 0px 0px 0px;
+            margin: 15% 0px 0px 0px;
             color:  #244166;
             text-align: center;
             vertical-align: top;
@@ -147,15 +149,19 @@
             border: 1px solid whitesmoke;
             border-radius: 15px;
          }
+         #alur label{
+            font-size: xx-large;
+            font-weight: bold;
+         }
 
-         .alur table {
+         #alur table {
             margin: 40px auto;
             border-collapse: collapse;
          }
 
-         .alur td,tr,th{
-            border: 1px solid black;
-            width: 150px;
+         #alur td,tr,th{
+            border: 0px solid black;
+            width: 170px;
             padding: 10px;
          }
 
@@ -170,6 +176,23 @@
             border-radius: 50%;
             display: inline-block;
          }
+         .arrow{
+            content: url(Gambar/Arrow.png);
+            height: 150px;
+         }
+
+         #statistik{
+             position: relative;
+            margin: 5% 0px 0px 0px;
+            color:  #244166;
+            text-align: center;
+            vertical-align: top;
+            z-index: 1;
+            background-color: white;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid whitesmoke;
+            border-radius: 15px;
+         }
 
     </style>
 </head>
@@ -178,7 +201,7 @@
         <img>
         <nav>
             <ol>
-                <li><a href="#">Beranda</a></li>
+                <li><a href="#alur">Beranda</a></li>
                 <li><a href="">Laporanku</a></li>
                 <li><a href="">Feed</a></li>
                 <li><a href="#">Peta Laporan</a></li>
@@ -194,39 +217,51 @@
                     <h2>Platform Laporan Masyarakat Mandiri</h2>
                     <button>Lapor Sekarang!</button>
                 </div>
-                <div class="alur">
-                    <h3>Alur Laporan</h3>
+                <div id="alur"><br><br>
+                    <label>Alur Laporan</label>
                     <div>
                         <table>
                             <tr class="jalur">
                                 <th><label>1</label></th>
-                                <td></td>
+                                <td rowspan="3"><img class="arrow"></td>
                                 <th><label>2</label></th>
-                                <td></td>
+                                <td rowspan="3"><img class="arrow"></td>
                                 <th><label>3</label></th>
                             </tr>
                             <tr>
                                 <th>ISI LAPORAN</th>
-                                <td></td>
                                 <th>KIRIM OTOMATIS</th>
-                                <td></td>
                                 <th>PANTAU STATUS</th>
                             </tr>
                             <tr>
                                 <td>Isi formulir & tambahkan foto.</td>
-                                <td></td>
                                 <td>Sistem mengirim laporan ke instansi tujuan.</td>
-                                <td></td>
                                 <td>Gunakan kode tracking untuk memantau.</td>
                             </tr>
                         </table>
                     </div>
                 </div>
+                <div id="statistik">
+                    <p >HAllo WORLd</p>
+                    <table>
+                        <tr>
+                            <td>200</td>
+                            <td>40</td>
+                            <td>70%</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </section>
+            
         <section class="bg">
-            <img src="Gambar/bg.jpg" alt="None">
+            <img style="position: absolute; opacity: 0.2;" src="Gambar/idn.png" alt="None">
+            <img src="Gambar/Bg.png" alt="None">
         </section>
+        
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
