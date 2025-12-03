@@ -75,7 +75,7 @@
             align-items: center;
             left: 50%;
             transform: translate(-50%);
-            width: 70%;
+            width: 90%;
             margin-top: 10%;
             color:  #244166;
             z-index: 3;
@@ -89,7 +89,7 @@
         }
 
         #titletext{
-            padding: 0% 0% 0% 10%;
+            padding: 0% 0% 0% 20%;
         }
 
         main button{
@@ -133,6 +133,9 @@
          #alur{
             position: relative;
             margin: 15% 0px 0px 0px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
             color:  #244166;
             text-align: center;
             vertical-align: top;
@@ -175,14 +178,49 @@
          }
 
          #statistik{
-             position: relative;
-            margin: 5% 0px 0px 0px;
+            position: absolute;
+            margin: 10% 0px 10% 0px;
+            left: 50%;
+            transform: translate(-50%);
             color:  #244166;
+            width: 100%;
             text-align: center;
             vertical-align: top;
             z-index: 1;
-            background-color: white;
-            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-            border: 1px solid whitesmoke;
-            border-radius: 15px;
+
          }
+
+         #statistik table{
+            
+            margin: 0 auto;
+            border-collapse: collapse;
+         }
+         #statistik th{
+            width: 10%;
+            font-size: 50px;
+            font-weight: bold;
+            border-left: 2px solid #244166;
+            border-right: 2px solid #244166;
+            }
+
+        #statistik tr,td {
+            width: 10%;
+            padding: 20px;
+            border-left: 2px solid #244166;
+            border-right: 2px solid #244166;
+            font-weight: bold;
+        }
+        #statistik h3{
+            margin: 50px;
+        }
+        #statistik label{
+            color: white;
+            padding: 10px;
+            background: #244166;
+            border-radius: 5px;
+        }
+
+        #section2{
+            position: absolute;
+            width: 100%;
+        }
