@@ -77,6 +77,31 @@
                    <h3><label>Selasa,2 November 2025</label></h3>
                </div>
         </section>
+        <section id="section3">
+            <div id="alur"><br><br>
+                    <label>Alur Laporan</label>
+                    <div>
+                        <table>
+                            <tr class="jalur">
+                                <th><label>1</label></th>
+                                <td rowspan="3"><img class="arrow"></td>
+                                <th><label>2</label></th>
+                                <td rowspan="3"><img class="arrow"></td>
+                                <th><label>3</label></th>
+                            </tr>
+                            <tr>
+                                <th>ISI LAPORAN</th>
+                                <th>KIRIM OTOMATIS</th>
+                                <th>PANTAU STATUS</th>
+                            </tr>
+                            <tr>
+                                <td>Isi formulir & tambahkan foto.</td>
+                                <td>Sistem mengirim laporan ke instansi tujuan.</td>
+                                <td>Gunakan kode tracking untuk memantau.</td>
+                            </tr>
+                        </table>
+                    </div>
+        </section>
         
     </main>
     <footer>
