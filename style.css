@@ -186,7 +186,7 @@
 
          #statistik{
             position: relative;
-            margin: 10% 0px 0% 0px;
+            margin: -5% 0px 5% 0px;
             left: 50%;
             transform: translate(-50%);
             color:  #244166;
@@ -217,9 +217,6 @@
             border-right: 2px solid #244166;
             font-weight: bold;
         }
-        #statistik h3{
-            margin: 50px;
-        }
         #statistik label{
             color: white;
             padding: 10px;
@@ -233,15 +230,94 @@
         }
 
         #section3{
+            position: relative;
+            width: 100%;
 
         }
 
-        #section3 div{
-            padding: 10%;
-            background-color: white;
+        #feed{
+            position: relative;
+            margin: 0% 0px 0px 0px;
+            margin: 50px 0px 50px 0px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 90%;
+            color:  #244166;
+            text-align: center;
+            vertical-align: top;
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        #feed label{
+            font-size: xx-large;
+            font-weight: bold;
+            text-align: center;
+         }
+
+         #feed .posts{
+            display: flex;
+            padding: 15px 0px 15px 0px;
+            margin: 5px;
+            background-color: white; 
+            border-radius: 15px; 
+            width: 28%;
             box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+         }
 
-        }
+         #feed .posts h4{
+            text-align: left;
+            font-size: larger;
+            margin: 10px 0px 10px 0px;
+         }
+         #feed .posts .image{
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+            background: url(Gambar/Bg.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-color: #33a3d8;
+            width: 100%;
+            height: 250px;
+            background-color: aliceblue;
+         }
+         #feed .posts article{
+            margin: 0px 20px 0px 20px;
+         }
+
+         #feed .posts label{
+            font-size: medium;
+            font-weight: bolder;
+            text-align: left;
+            
+         }
+         #feed .posts p{
+            margin: 0;
+            font-size: medium;
+            text-align: left;
+            border-radius: 5px;
+            margin: 5px 0px 5px 0px;
+         }
+         #feed .posts p button{
+            position: relative;
+            z-index: 2;
+            width: 80px;
+            height: 25px;
+            border: 0px;
+            background-color: rgb(234, 255, 234);
+            color: green;
+            border: 1px solid green;
+            border-radius: 20px;
+            font-size: small;
+            font-weight: normal;
+         }
+         #feed .posts p button:hover{
+            cursor: default;
+         }
 
 
 

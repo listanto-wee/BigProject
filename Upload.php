@@ -50,7 +50,7 @@
     </style>
 </head>
 <body>
-    <form method="POST" enctype="multipart/form-data" name="image">
+    <form method="POST" enctype="multipart/form-data" name="laporan">
         <input type="file" name="image"><br>
         <select name="kategori" id="kategori" onchange="cekCustom()">
             <option value="infrastruktur">Infrastruktur</option>

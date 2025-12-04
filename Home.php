@@ -78,28 +78,15 @@
                </div>
         </section>
         <section id="section3">
-            <div id="alur"><br><br>
-                    <label>Alur Laporan</label>
-                    <div>
-                        <table>
-                            <tr class="jalur">
-                                <th><label>1</label></th>
-                                <td rowspan="3"><img class="arrow"></td>
-                                <th><label>2</label></th>
-                                <td rowspan="3"><img class="arrow"></td>
-                                <th><label>3</label></th>
-                            </tr>
-                            <tr>
-                                <th>ISI LAPORAN</th>
-                                <th>KIRIM OTOMATIS</th>
-                                <th>PANTAU STATUS</th>
-                            </tr>
-                            <tr>
-                                <td>Isi formulir & tambahkan foto.</td>
-                                <td>Sistem mengirim laporan ke instansi tujuan.</td>
-                                <td>Gunakan kode tracking untuk memantau.</td>
-                            </tr>
-                        </table>
+            <div id="feed">
+                    <h3><label>Feed</label></h3>
+                    <div class="posts">
+                        <div class="image"></div>
+                            <article>
+                                <h4>Jalan berlubang membahayan pengendara didepan KUA pituruh</h4>
+                                <p><label>Kecamatan Pituruh</label><label> - </label><label>20 Nov 2025</label><label> - </label><label>infrastruktur</label></p>
+                                <label><p>Status : <button>Selesai</button></p></label>
+                            </article>
                     </div>
         </section>
         
