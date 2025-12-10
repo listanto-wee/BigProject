@@ -1,42 +1,63 @@
 <?php
+    // koneksi.php harus sudah ter-include di sini
     include('konfigurasi/koneksi.php');
 
     if(isset($_POST['submit'])){
-        $file_name = $_FILES['image']['name'];
-        $tempname = $_FILES['image']['tmp_name'];
-        $folder = 'Gambar/'.$file_name;
 
-        $judul = $_POST['judul'];
-        $isi = $_POST['isi'];
-        $status = $_POST['status'];
-        $tanggal = $_POST['tanggal'];
-        $pengirim = $_POST['pengirim'];
+        // Pengecekan dasar apakah ada file yang diunggah dan tidak ada error
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            
+            $file_name = $_FILES['image']['name'];
+            $tempname = $_FILES['image']['tmp_name'];
+            // Direktori tujuan harus konsisten. 
+            $folder = 'Gambar/'.$file_name; 
 
-        $kategori = $_POST['kategori'];
-        if($kategori == 'custom')
-            $kategori =$_POST['kategoriCustom'];
+            // Ambil data POST
+            $judul = $_POST['judul'];
+            $isi = $_POST['isi'];
+            $status = $_POST['status'];
+            // Pastikan Anda mendapatkan nilai 'tanggal' dari POST jika diperlukan
+            $tanggal = $_POST['tanggal']; 
+            $pengirim = $_POST['pengirim'];
 
-        if (move_uploaded_file($tempname, $folder)) {
-        // File berhasil dipindahkan, lanjutkan simpan ke database
-        $query = mysqli_query($con, "INSERT INTO laporan (file, judul, isi, tanggal, kategori, status, pengirim) VALUES ('$file_name', '$judul','$isi','$tanggal', '$kategori', '$status','$pengirim')");
+            $kategori = $_POST['kategori'];
+            // Perbaikan: Pastikan kategoriCustom memiliki atribut name="kategoriCustom" di HTML
+            if($kategori == 'custom' && isset($_POST['kategoriCustom'])) {
+                $kategori = $_POST['kategoriCustom'];
+            }
 
-        if($query){
-            header("Location: post.php");
-            exit();
+            // PENTING: Pindahkan file
+            if (move_uploaded_file($tempname, $folder)) {
+                // File berhasil dipindahkan, lanjutkan simpan ke database
+                
+                // PERHATIAN: Ini adalah SQL query yang rentan SQL Injection!
+                // Harap gunakan prepared statements untuk produksi.
+                $query = mysqli_query($con, "INSERT INTO laporan (file, judul, isi, tanggal, kategori, status, pengirim) VALUES ('$file_name', '$judul','$isi','$tanggal', '$kategori', '$status','$pengirim')");
+
+                if($query){
+                    header("Location: post.php");
+                    exit();
+                } else {
+                    echo "<h2>Gagal menyimpan data ke database: " . mysqli_error($con) . "</h2>";
+                    // Opsional: Hapus file yang sudah terunggah jika gagal simpan ke DB
+                    // unlink($folder); 
+                }
+            } else {
+                // KASUS 1: move_uploaded_file gagal (kemungkinan besar karena izin folder)
+                echo "<h2>Gagal memindahkan file yang diunggah. Cek izin tulis untuk folder 'Gambar/'.</h2>";
+            }
         } else {
-            echo "<h2>Gagal menyimpan data ke database: " . mysqli_error($con) . "</h2>";
+             // KASUS 2: Tidak ada file yang diunggah atau terjadi error unggah PHP
+            echo "<h2>Gagal mengunggah file. Pastikan Anda memilih file dan ukuran file tidak melebihi batas.</h2>";
+            // Untuk debugging, Anda bisa menampilkan kode error: $_FILES['image']['error']
         }
-    } else {
+    } 
+    // Hapus blok 'else' di sini, karena akan dieksekusi setiap kali halaman dimuat pertama kali
+    /* else {
         echo "<h2>Gagal memindahkan file yang diunggah. Cek izin folder 'Gambar/database/'.</h2>";
-    }
-    } else {
-        echo "<h2>Upload file gagal</h2>";
-    }
-
-
+    } */
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -50,6 +71,9 @@
     <style>
         *{
             font-family: Arial, Helvetica, sans-serif;
+        }
+        a{
+            text-decoration: none;
         }
 
         .posts{
@@ -135,7 +159,7 @@
         <input type="text" name="judul" placeholder="judul" required>
         <input type="text" name="isi" placeholder="isi" required>
         <input type="text" name="status" placeholder="status" required>
-        <input type="date" name="tanggal"  required>
+        <input type="text" hidden name="tanggal" id="tanggal">
         <input type="text" name="pengirim" placeholder="pengirim" required>
 
         <select name="kategori" id="kategori" onchange="cekCustom()">
@@ -152,16 +176,17 @@
 
     <div>
             <?php
-            $result = mysqli_query($con,"SELECT * FROM laporan");
-             while($row = mysqli_fetch_assoc($result)){
-            ?>
-            <div class="posts">
+            $result = mysqli_query($con,"SELECT * FROM laporan ORDER BY id_laporan DESC LIMIT 6");
+            while($row = mysqli_fetch_assoc($result)){
+                 $laporan = 'laporan.php?id=' . htmlspecialchars($row['id_laporan']);
+                ?>
+            <a href="<?php echo $laporan;?>"><div class="posts">
                         <div class="image" style="background-image: url('Gambar/<?php echo $row['file']; ?>');"></div>
                             <article>
                                 <h4><?php echo $row['judul']; ?></h4>
                                 <p><label>Kecamatan Pituruh</label><label> - </label><label><?php echo $row['tanggal']; ?></label><label> - </label><label><?php echo $row['kategori']; ?></label></p>
                                 <label><p>Status : <button><?php echo $row['status']; ?></button></p></label>
-                            </article>
+                            </article></a>
                     </div>
         <?php } ?>
     </div>
@@ -178,6 +203,26 @@
                         customBox.style.display = "none";
                     }
                 }
+                    function formatTanggalNamaBulan(tanggal) {
+                        
+                        const options = {
+                            day: '2-digit',     
+                            month: 'long',       
+                            year: 'numeric'     
+                        };
+                        const tanggalTerformat = tanggal.toLocaleDateString('id-ID', options);
+                        
+                        return tanggalTerformat;
+                    }
+
+                  
+                    const tanggalSaatIni = new Date();
+                    const hasilFormat = formatTanggalNamaBulan(tanggalSaatIni);
+
+                    console.log(hasilFormat); // Output: "05 Desember 2025"
+
+                    const d = tanggalTerformat;
+                    document.getElementById("tanggal").value = d;
     </script>
 
 </body>

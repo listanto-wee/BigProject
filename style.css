@@ -26,7 +26,7 @@
             padding: 10px 10px 10px 30px; 
         }
 
-        nav, ol, li,a {
+        nav, ol, li,#aheader {
             list-style-type: none;
             float: right;
             position: relative;
@@ -35,14 +35,14 @@
             z-index: 500;
         }
 
-        a{
+        #aheader{
             color: #244166;
             padding: 5px;
             font-weight: bold;
             
         }
 
-        a:hover{
+        #aheader:hover{
             color: white;
             background-color: #244166;
             border-radius: 5px;
@@ -186,7 +186,7 @@
 
          #statistik{
             position: relative;
-            margin: -5% 0px 5% 0px;
+            margin: 0;
             left: 50%;
             transform: translate(-50%);
             color:  #244166;
@@ -198,7 +198,6 @@
          }
 
          #statistik table{
-            
             margin: 0 auto;
             border-collapse: collapse;
          }
@@ -242,11 +241,20 @@
             left: 50%;
             transform: translate(-50%);
             width: 90%;
+            max-height: 90%x;
             color:  #244166;
             text-align: center;
             vertical-align: top;
             z-index: 1;
             border-radius: 15px;
+        }
+
+        #feed .postfeed{
+            display: flex;
+            width: 98%;
+            max-height: 800px;
+            display: inline-block;
+            position: relative;
         }
 
         #feed label{
@@ -261,13 +269,21 @@
             margin: 5px;
             background-color: white; 
             border-radius: 15px; 
-            width: 28%;
+            width: 32%;
             box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
             position: relative;
             display: inline-block;
          }
 
          #feed .posts h4{
+            overflow-wrap: break-word;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.4em; /* Tinggi satu baris */
+            height: 2.8em;
+            overflow: hidden;
             text-align: left;
             font-size: larger;
             margin: 10px 0px 10px 0px;
@@ -276,7 +292,7 @@
             position: relative;
             left: 50%;
             transform: translate(-50%);
-            background: url(Gambar/Bg.png);
+            /*background: url(Gambar/Bg.png);*/
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
@@ -318,8 +334,13 @@
          #feed .posts p button:hover{
             cursor: default;
          }
-
-
+         
+         #feed .postfeed .posts a{
+            color: #244166;
+            padding: 0px;
+            font-weight: bold;
+            
+        }
 
 
 

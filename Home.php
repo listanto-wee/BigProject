@@ -1,5 +1,9 @@
+<?php
+include('konfigurasi/koneksi.php');
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +16,10 @@
         <img>
         <nav>
             <ol>
-                <li><a href="#alur">Beranda</a></li>
-                <li><a href="#statistik">Laporanku</a></li>
-                <li><a href="">Feed</a></li>
-                <li><a href="#">Peta Laporan</a></li>
+                <li><a href="#alur" id="aheader">Beranda</a></li>
+                <li><a href="#statistik" id="aheader">Laporanku</a></li>
+                <li><a href="" id="aheader">Feed</a></li>
+                <li><a href="#" id="aheader">Peta Laporan</a></li>
             </ol>
         </nav>
         <button></button>
@@ -80,14 +84,24 @@
         <section id="section3">
             <div id="feed">
                     <h3><label>Feed</label></h3>
-                    <div class="posts">
-                        <div class="image"></div>
-                            <article>
-                                <h4>Jalan berlubang membahayan pengendara didepan KUA pituruh</h4>
-                                <p><label>Kecamatan Pituruh</label><label> - </label><label>20 Nov 2025</label><label> - </label><label>infrastruktur</label></p>
-                                <label><p>Status : <button>Selesai</button></p></label>
-                            </article>
-                    </div>
+                    <div class="postfeed">
+
+                        <?php
+                $result = mysqli_query($con,"SELECT * FROM laporan ORDER BY id_laporan DESC LIMIT 6");
+                while($row = mysqli_fetch_assoc($result)){
+                 $laporan = 'laporan.php?id=' . htmlspecialchars($row['id_laporan']);
+                ?>
+                        <a href="<?php echo $laporan;?>"><div class="posts">
+                            <div class="image" style="background-image: url('Gambar/<?php echo $row['file']; ?>');"></div>
+                                <article>
+                                    <h4><?php echo $row['judul']; ?></h4>
+                                    <p><label>Kecamatan Pituruh</label><label> - </label><label><?php echo $row['tanggal']; ?></label><label> - </label><label><?php echo $row['kategori']; ?></label></p>
+                                    <label><p>Status : <button><?php echo $row['status']; ?></button></p></label>
+                                </article>
+                            </div></a>
+                            <?php } ?>
+                        </div>
+
         </section>
         
     </main>
